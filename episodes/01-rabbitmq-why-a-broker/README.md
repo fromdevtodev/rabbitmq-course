@@ -7,7 +7,7 @@
 
 ## YouTube
 
-[Watch this episode]({{youtubeUrl}})
+[Watch this episode](https://www.youtube.com/watch?v=pyOQFWg38sA)
 
 This folder is the companion project for the first episode of the course. The README is the **written version of the lesson**: together with the video it should leave the concept complete. Read it to review the ideas, follow the diagrams, and then run the experiments yourself.
 
