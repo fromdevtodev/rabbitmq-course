@@ -1,0 +1,5 @@
+{
+  "eventId": "evt_0001",
+  "type": "order.created",
+  "orderId": "ord_1001"
+}

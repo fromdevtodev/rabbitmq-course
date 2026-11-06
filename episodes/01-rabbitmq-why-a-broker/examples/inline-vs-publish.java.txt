@@ -1,0 +1,21 @@
+// Teaching excerpt from the video (scene "Do the slow part later"). Not a compilable source.
+// In this project the same choice is made in App.java: `email::sendConfirmation` or `publisher::orderCreated`,
+// and OrderService runs it right after saving the order.
+
+// TODAY: inline call
+Order order = orders.save(request);
+
+// the customer waits here
+emailClient.sendConfirmation(order);
+
+return ResponseEntity.status(201)
+        .body(order);
+
+// TOMORROW: publish a message
+Order order = orders.save(request);
+
+// the customer does not wait
+publisher.orderCreated(order);
+
+return ResponseEntity.status(201)
+        .body(order);

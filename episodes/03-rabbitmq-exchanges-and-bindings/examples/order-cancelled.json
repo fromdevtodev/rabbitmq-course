@@ -1,0 +1,5 @@
+{
+  "eventId": "evt_0003",
+  "type": "order.cancelled",
+  "orderId": "ord_1003"
+}

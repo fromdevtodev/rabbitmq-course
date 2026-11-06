@@ -1,0 +1,6 @@
+{
+  "eventId": "evt_5C20",
+  "type": "order.created",
+  "orderId": "ord_1042",
+  "customerId": "cus_88"
+}
