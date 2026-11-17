@@ -9,7 +9,7 @@
 
 ## YouTube
 
-The video link will be added here when the episode is published.
+https://www.youtube.com/watch?v=Kyzs2fq5Rok
 
 This README is the **written version of the lesson**. It tells the same story as the video, with more room for the reasoning and for the code. You can read it before the video, after it, or instead of it. Everything it describes can be run on your machine with `./run.sh`.
 
