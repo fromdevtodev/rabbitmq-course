@@ -1,0 +1,24 @@
+# Maven
+target/
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+
+# Local environment
+.env
+*.log
+
+# Demo recordings (local, large)
+episodes/*/recordings/output/
+episodes/*/recordings/logs/
+
+episodes/.DS_Store
+recordings/
+platform/
+
+
