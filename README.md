@@ -20,6 +20,7 @@ Companion code for the **From Dev to Dev** RabbitMQ video course: a course built
 | 10 | [Prefetch: stop a slow consumer from hoarding messages](episodes/10-rabbitmq-prefetch/README.md) | Prefetch caps how many unacknowledged messages RabbitMQ gives a consumer at once. |
 | 11 | [Durability: what survives a RabbitMQ restart](episodes/11-rabbitmq-durability/README.md) | Only a durable queue holding persistent messages can survive a broker restart, and even then not every message is guaranteed. |
 | 12 | [Publisher confirms: did RabbitMQ really take it?](episodes/12-rabbitmq-publisher-confirms/README.md) | A publisher confirm tells the producer the broker has taken responsibility for a message, not that anyone processed it. |
+| 13 | [Dead-letter exchanges: where failed messages go](episodes/13-rabbitmq-dead-letter-exchange/README.md) | A dead-letter exchange receives messages that a queue rejected, expired or dropped, so failures stay visible. |
 
 More episodes are added to this repository as they are published. The course covers four blocks: **foundations** (broker, queues, exchanges, routing), **consuming and reliability** (acknowledgements, retries, dead letters), **correctness** (duplicates, idempotency, ordering) and **operations and decisions** (quorum queues, flow control, observability, RabbitMQ versus Kafka), and ends with a closing project that puts them together.
 
