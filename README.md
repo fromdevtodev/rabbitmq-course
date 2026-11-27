@@ -12,7 +12,7 @@ Companion code for the **From Dev to Dev** RabbitMQ video course: a course built
 | 2 | [RabbitMQ queues: the buffer between producer and consumer](episodes/02-rabbitmq-queues/README.md) | A queue is a buffer: it holds messages until a consumer takes them. |
 | 3 | [Exchanges and bindings: how a message finds its queue](episodes/03-rabbitmq-exchanges-and-bindings/README.md) | A producer publishes to an exchange, and bindings decide which queues receive a copy. |
 | 4 | [Direct exchange: exact-match routing, and the default exchange](episodes/04-rabbitmq-direct-exchange/README.md) | A direct exchange copies a message to every queue whose binding key exactly equals the routing key. |
-| 5 | [Topic exchange: routing with patterns (`*` and `#`)](episodes/05-rabbitmq-topic-exchange/README.md) | A topic exchange matches routing keys against word patterns: star is exactly one word, hash is zero or more. |
+| 5 | [Topic exchange: routing with patterns (* and #)](episodes/05-rabbitmq-topic-exchange/README.md) | A topic exchange matches routing keys against word patterns: star is exactly one word, hash is zero or more. |
 | 6 | [Fanout exchange: broadcast to every queue](episodes/06-rabbitmq-fanout-exchange/README.md) | A fanout exchange ignores the routing key and copies every message to every queue bound to it. |
 | 7 | [Unroutable messages: when RabbitMQ drops yours without an error](episodes/07-rabbitmq-unroutable-messages/README.md) | A message that matches no binding is dropped silently, unless you ask RabbitMQ to give it back. |
 | 8 | [Manual acknowledgements: what the ack really means](episodes/08-rabbitmq-manual-ack/README.md) | A delivery stays unacknowledged until the consumer answers, and RabbitMQ redelivers it if the consumer dies first. |
@@ -21,6 +21,7 @@ Companion code for the **From Dev to Dev** RabbitMQ video course: a course built
 | 11 | [Durability: what survives a RabbitMQ restart](episodes/11-rabbitmq-durability/README.md) | Only a durable queue holding persistent messages can survive a broker restart, and even then not every message is guaranteed. |
 | 12 | [Publisher confirms: did RabbitMQ really take it?](episodes/12-rabbitmq-publisher-confirms/README.md) | A publisher confirm tells the producer the broker has taken responsibility for a message, not that anyone processed it. |
 | 13 | [Dead-letter exchanges: where failed messages go](episodes/13-rabbitmq-dead-letter-exchange/README.md) | A dead-letter exchange receives messages that a queue rejected, expired or dropped, so failures stay visible. |
+| 14 | [Delayed retries with TTL and dead-lettering](episodes/14-rabbitmq-delayed-retry-ttl/README.md) | A retry queue with a TTL, dead-lettering back to the work queue, delays a retry without a consumer sleeping. |
 
 More episodes are added to this repository as they are published. The course covers four blocks: **foundations** (broker, queues, exchanges, routing), **consuming and reliability** (acknowledgements, retries, dead letters), **correctness** (duplicates, idempotency, ordering) and **operations and decisions** (quorum queues, flow control, observability, RabbitMQ versus Kafka), and ends with a closing project that puts them together.
 
@@ -39,15 +40,15 @@ No previous RabbitMQ knowledge is needed; episode 1 starts from zero.
 Each episode folder is a self-contained Maven project with its own `docker-compose.yml` and a `run.sh` that has one command per step of the lesson:
 
 ```bash
-cd episodes/12-rabbitmq-publisher-confirms
-./run.sh up            # start RabbitMQ in Docker
-./run.sh experiment1   # the first experiment of the episode (see its README)
+cd episodes/02-rabbitmq-queues
+./run.sh up            # start RabbitMQ in Docker and declare the queue
+./run.sh experiment    # the experiment of the episode (see its README)
 ./run.sh counters      # print the queue's counters
 ./run.sh test          # unit tests (no broker needed)
 ./run.sh down          # stop RabbitMQ and delete its data
 ```
 
-The experiment commands differ from episode to episode (`experiment`, `experiment1`, `experiment2`, ...), and `./run.sh help` lists every command of that episode. Each episode's README explains what its experiments do and what to predict before running them.
+`./run.sh help` lists every command of that episode.
 
 Every episode uses the same local ports (5672 and 15672), so run `./run.sh down` in one episode's folder before starting the next one. The management page is at <http://localhost:15672> (user `guest`, password `guest`, for local use only).
 
